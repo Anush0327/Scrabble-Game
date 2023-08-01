@@ -1,13 +1,12 @@
-package ScrabbleGame;
+package scrabble;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-//Player has rack array for tiles to be played and score integer
 public class Player
 {
-    private Tile[] rack; //tiles they have that are ready to be played
+    private Tile[] rack; 
     private int score;
     
     public Player()
@@ -38,7 +37,7 @@ public class Player
     	list.toArray(rack);
     }
     
-    public void organizeRack() //pushes tiles in rack to left side, leaving no spaces in between tiles. Helps rack GUI look cleaner
+    public void organizeRack() 
     {
     	for(int i = 0; i < 6; i ++)
     	{
@@ -69,7 +68,7 @@ public class Player
     	return temp;
     }
     
-    public int addTileToRack(Tile tile) //adds tile to next free index in rack array then returns which index, returns -1 if did not finx a free index to insert tile
+    public int addTileToRack(Tile tile) 
     {
     	for(int i = 0; i < rack.length; i++)
     	{
@@ -83,7 +82,7 @@ public class Player
     	return -1;
     }
     
-    //helper function for undo button
+    
     public void addTileToRackAt(Tile tile, int index)
     {
     	if(rack[index] == null)

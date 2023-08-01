@@ -1,54 +1,54 @@
-package ScrabbleGame;
+package scrabble;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.*;
 
-//Reads and store words from file filled with legal scrabble words to play
 public class Dictionary 
 {
-	Trie trie;
-	
-	public Dictionary()
-	{
-		trie = new Trie();
-		try 
-		{
-			addFileToDictionary();
+    private ArrayList<String> wordList;
+
+    public Dictionary()
+    {
+        wordList = new ArrayList<>();
+        try
+        {
+            addFileToDictionary();
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void addFileToDictionary() throws FileNotFoundException
+    {
+        File file = new File("C:\\Users\\abhishek.sg\\Downloads\\sowpods.txt");
+        try (Scanner sc = new Scanner(file))
+        {
+            while (sc.hasNextLine())
+            {
+                String word = sc.nextLine();
+                word = word.toLowerCase();
+                wordList.add(word);
+            }
+        }
+    }
+
+    public boolean verifyWord(String word)
+    {
+        word = word.toLowerCase();
+        return wordList.contains(word);
+    }
+
+	public static void main (String[] args){
+		Dictionary Dict = new Dictionary();
+		try{
+		Dict.addFileToDictionary();
 		}
-		catch (FileNotFoundException e) 
-		{
-			
-			e.printStackTrace();
+		catch(Exception e){
+			System.out.println("Not Found");
 		}
 	}
-	
-	public void addFileToDictionary() throws FileNotFoundException
-	{
-		List<String> s;
-		try {
-			s = Files.lines(Path.of("sowpods.txt")).toList();
-			for(String word : s)
-			{
-				word = word.toLowerCase();
-				trie.insertWord(word);
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}			
-	}
-	
-	public boolean verifyWord(String word)
-	{
-		word = word.toLowerCase();
-		return trie.searchWord(word);
-	}
-	
-	
 }

@@ -1,9 +1,8 @@
-package ScrabbleGame;
+package scrabble;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-//Bag object to create and hold specific number of alphabet and blank tiles.
 public class Bag
 {
     private ArrayList<Tile> tiles;
@@ -26,16 +25,6 @@ public class Bag
     	return tiles.size() < 1;
     }
     
-    /*
-    0 points: Blank x2
-    1 point: E ×12, A ×9, I ×9, O ×8, N ×6, R ×6, T ×6, L ×4, S ×4, U ×4
-    2 points: D ×4, G ×3
-    3 points: B ×2, C ×2, M ×2, P ×2
-    4 points: F ×2, H ×2, V ×2, W ×2, Y ×2
-    5 points: K ×1
-    8 points: J ×1, X ×1
-    10 points: Q ×1, Z ×1
-    */
     public void populateBag()
     {
         createTile("-", 0, 2);
@@ -80,7 +69,6 @@ public class Bag
         Collections.shuffle(tiles);
     }
     
-  //Create tile with chosen letter to swap blank tile
     public static void swapBlankTile(char chosenLetter)
 	{
 		if(chosenLetter == 'E')

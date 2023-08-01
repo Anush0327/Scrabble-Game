@@ -1,4 +1,4 @@
-package ScrabbleGame;
+package scrabble;
 
 public class Tile
 {
