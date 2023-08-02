@@ -1,4 +1,5 @@
-package scrabble;
+
+package com.boardui;
 
 import java.util.Arrays;
 import java.util.Collections;

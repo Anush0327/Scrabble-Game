@@ -1,4 +1,5 @@
-package scrabble;
+
+package com.boardui;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,7 +25,7 @@ public class Dictionary
 
     public void addFileToDictionary() throws FileNotFoundException
     {
-        File file = new File("C:\\Users\\abhishek.sg\\Downloads\\sowpods.txt");
+        File file = new File("C:\\Users\\anush.a\\Documents\\scrabble-javafx\\sowpods.txt");
         try (Scanner sc = new Scanner(file))
         {
             while (sc.hasNextLine())

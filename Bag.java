@@ -1,4 +1,5 @@
-package scrabble;
+
+package com.boardui;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +28,6 @@ public class Bag
     
     public void populateBag()
     {
-        createTile("-", 0, 2);
         createTile("E", 1, 12);
         createTile("A", 1, 9);
         createTile("I", 1, 9);

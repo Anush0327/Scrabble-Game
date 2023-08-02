@@ -1,4 +1,5 @@
-package scrabble;
+
+package com.boardui;
 
 public class Tile
 {
